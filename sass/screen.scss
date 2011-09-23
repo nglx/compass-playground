@@ -1,0 +1,24 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+$blue: #369;
+
+.submit-with-gradient {
+    padding: 3px 15px;
+    border: 1px solid $blue;
+    background: -moz-linear-gradient(top, lighten($blue, 10%), $blue 100%); /*Moz*/
+    background: -webkit-gradient(linear, center top, center bottom, from(lighten($blue, 10%)), color-stop(100%, $blue)); /*Webkit*/
+    background: -o-linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*Opera*/
+    background: -ms-linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*IE 10+*/
+    background: linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*W3C*/
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+}
+
+#submit-with-gradient {
+    @extend .submit-with-gradient;
+}
