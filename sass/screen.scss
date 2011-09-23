@@ -53,11 +53,6 @@ $blue: #369;
 $white: #FFF;
 $red: #E41E1E;
 
-body {
-    @extend bp;
-    @extend two-col;
-}
-
 label, input[type="button"], input[type="submit"], input[type="image"], button {
     cursor: pointer;
 }
