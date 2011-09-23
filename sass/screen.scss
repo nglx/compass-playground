@@ -48,45 +48,4 @@ body.two-col {
     // true means it's the last column in the row
     @include column($content-columns, true); } }
 
-
-$blue: #369;
-$white: #FFF;
-$red: #E41E1E;
-
-label, input[type="button"], input[type="submit"], input[type="image"], button {
-    cursor: pointer;
-}
-
-.submit-with-gradient {
-    padding: 3px 15px;
-    border: 1px solid $blue;
-    background: -moz-linear-gradient(top, lighten($blue, 10%), $blue 100%); /*Moz*/
-    background: -webkit-gradient(linear, center top, center bottom, from(lighten($blue, 10%)), color-stop(100%, $blue)); /*Webkit*/
-    background: -o-linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*Opera*/
-    background: -ms-linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*IE 10+*/
-    background: linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*W3C*/
-    color: $white;
-    text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
-}
-
-.submit-simple {
-    background-color: $red;
-    border: medium none;
-    border-radius: 4px 4px 4px 4px;
-    color: $white !important;
-    font-size: 16px;
-    font-weight: normal;
-    padding: 10px 18px 9px;
-}
-
-.submit-simple:hover {
-    background-color: darken($red, 10%);
-}
-
-#submit-with-gradient {
-    @extend .submit-with-gradient;
-}
-
-#submit-simple {
-    @extend .submit-simple;
-}
+@import "partials/buttons";

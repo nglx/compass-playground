@@ -534,12 +534,12 @@ body.two-col #content {
   overflow-x: hidden;
 }
 
-/* line 56, ../sass/screen.scss */
+/* line 5, ../sass/partials/_buttons.scss */
 label, input[type="button"], input[type="submit"], input[type="image"], button {
   cursor: pointer;
 }
 
-/* line 60, ../sass/screen.scss */
+/* line 9, ../sass/partials/_buttons.scss */
 .submit-with-gradient, #submit-with-gradient {
   padding: 3px 15px;
   border: 1px solid #336699;
@@ -557,7 +557,7 @@ label, input[type="button"], input[type="submit"], input[type="image"], button {
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
 }
 
-/* line 72, ../sass/screen.scss */
+/* line 21, ../sass/partials/_buttons.scss */
 .submit-simple, #submit-simple {
   background-color: #e41e1e;
   border: medium none;
@@ -568,7 +568,7 @@ label, input[type="button"], input[type="submit"], input[type="image"], button {
   padding: 10px 18px 9px;
 }
 
-/* line 82, ../sass/screen.scss */
+/* line 31, ../sass/partials/_buttons.scss */
 .submit-simple:hover, #submit-simple:hover {
   background-color: #b91616;
 }
