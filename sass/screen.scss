@@ -1,11 +1,62 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
 
-@import "compass/reset";
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// To generate css equivalent to the blueprint css but with your
+// configuration applied, uncomment:
+// @include blueprint
+
+// If you are doing a lot of stylesheet concatenation, it is suggested
+// that you scope your blueprint styles, so that you can better control
+// what pages use blueprint when stylesheets are concatenated together.
+body.bp {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  // Remove the scaffolding when you're ready to start doing visual design.
+  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+}
+
+form.bp {
+  @include blueprint-form;
+  // You'll probably want to remove the scaffolding once you start styling your site.
+  @include blueprint-scaffolding; }
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body.two-col {
+  #container {
+    @include container; }
+  #header, #footer {
+    @include column($blueprint-grid-columns); }
+  #sidebar {
+    // One third of the grid columns, rounding down. With 24 cols, this is 8.
+    $sidebar-columns: floor($blueprint-grid-columns / 3);
+    @include column($sidebar-columns); }
+  #content {
+    // Two thirds of the grid columns, rounding up.
+    // With 24 cols, this is 16.
+    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
+    // true means it's the last column in the row
+    @include column($content-columns, true); } }
+
 
 $blue: #369;
+$white: #FFF;
+$red: #E41E1E;
+
+body {
+    @extend bp;
+    @extend two-col;
+}
 
 label, input[type="button"], input[type="submit"], input[type="image"], button {
     cursor: pointer;
@@ -19,22 +70,22 @@ label, input[type="button"], input[type="submit"], input[type="image"], button {
     background: -o-linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*Opera*/
     background: -ms-linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*IE 10+*/
     background: linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*W3C*/
-    color: #fff;
+    color: $white;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
 }
 
 .submit-simple {
-    background-color: $blue;
+    background-color: $red;
     border: medium none;
     border-radius: 4px 4px 4px 4px;
-    color: #FFFFFF !important;
+    color: $white !important;
     font-size: 16px;
     font-weight: normal;
     padding: 10px 18px 9px;
 }
 
 .submit-simple:hover {
-    background-color: darken($blue, 10%);
+    background-color: darken($red, 10%);
 }
 
 #submit-with-gradient {
