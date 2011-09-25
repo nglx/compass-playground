@@ -6,37 +6,39 @@ label, input[type="button"], input[type="submit"], input[type="image"], button {
     cursor: pointer;
 }
 
+@mixin linear-gradient($color) {
+    background: $color;
+    background: -moz-linear-gradient(top, lighten($color, 10%), $color 100%); /*Moz*/
+    background: -webkit-gradient(linear, center top, center bottom, from(lighten($color, 10%)), color-stop(100%, $color)); /*Webkit*/
+    background: -o-linear-gradient(top, lighten($color, 10%) 0%, $color 100%); /*Opera*/
+    background: -ms-linear-gradient(top, lighten($color, 10%) 0%, $color 100%); /*IE 10+*/
+    background: linear-gradient(top, lighten($color, 10%) 0%, $color 100%); /*W3C*/
+}
+
 .submit-with-gradient {
+    @include linear-gradient($blue);
+    &:hover {
+        @include linear-gradient(darken($blue, 10%));
+    }
     padding: 3px 15px;
     border: 1px solid $blue;
-    background: -moz-linear-gradient(top, lighten($blue, 10%), $blue 100%); /*Moz*/
-    background: -webkit-gradient(linear, center top, center bottom, from(lighten($blue, 10%)), color-stop(100%, $blue)); /*Webkit*/
-    background: -o-linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*Opera*/
-    background: -ms-linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*IE 10+*/
-    background: linear-gradient(top, lighten($blue, 10%) 0%, $blue 100%); /*W3C*/
     color: $white;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
 }
 
 .submit-simple {
-    background-color: $red;
-    border: medium none;
-    border-radius: 4px 4px 4px 4px;
-    color: $white !important;
-    font-size: 16px;
-    font-weight: normal;
+    @include linear-gradient($red);
+    border: 1px solid $red;
+    color: $white;
     padding: 3px 15px;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+    &:hover {
+        @include linear-gradient(darken($red, 10%));
+    }
 }
 
 .submit-simple1 {
     @extend .submit-simple;
-    border-radius: 0px;
-    border: 1px solid darken($red, 10%);
-}
-
-.submit-simple:hover {
-    background-color: darken($red, 10%);
 }
 
 #submit-with-gradient {
